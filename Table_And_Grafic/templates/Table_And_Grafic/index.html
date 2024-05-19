@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Table_And_Grafic/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Şirketlere Göre Toplam Kullanıcı Sayısı</h1>
+        <table class="data">
+            <thead>
+                <tr>
+                    <th>Şirket Adı</th>
+                    <th>Toplam Kullanıcı Sayısı</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for company in company_user_counts %}
+                <tr>
+                    <td>{{ company.simulation__company_name }}</td>
+                    <td>{{ company.total_users }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h1>Toplam Kullanıcı Sayısının Günlük Gelişimi</h1>
+        <img src="{% static 'Table_And_Grafic/daily_user_growth.png' %}" alt="Günlük Kullanıcı Artışı">
+    </div>
+</body>
+</html>
