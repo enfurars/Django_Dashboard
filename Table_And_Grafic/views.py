@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import User, Simulation
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('agg')
 import os
 from datetime import datetime, timedelta
 from django.db.models import Count  
